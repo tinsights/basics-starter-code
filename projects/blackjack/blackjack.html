@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basics</title>
+    <!-- Page setup configurations -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon configuration -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+    <!-- Inline CSS -->
     <style>
       * {
         box-sizing: border-box;
@@ -13,8 +23,10 @@
         margin-right: 30px;
       }
 
-      #header {
+      .header {
         text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
       }
 
       #container {
@@ -22,10 +34,6 @@
         margin: 40px auto;
         max-width: 800px;
         padding: 38px 31px;
-      }
-
-      h2 {
-        text-align: center;
       }
 
       input {
@@ -49,12 +57,30 @@
         padding: 20px;
         width: 100%;
       }
+
+      .logo-img {
+        height: 49px;
+        position: relative;
+        top: 22px;
+      }
+
+      /* increase header font size on wider screens */
+      @media screen and (min-width: 600px) {
+        .header {
+          font-size: 2rem;
+        }
+      }
     </style>
+
+    <title>Blackjack - Basics - Rocket Academy</title>
   </head>
 
   <body>
-    <h1 id="header"><a href="../../index.html">Basics!</a> 🚀</h1>
-    <h2>Blackjack</h2>
+    <h1 class="header">
+      <img class="logo-img" src="logo.png" />
+      <a href="../../index.html"> Basics! </a>
+      <img class="logo-img" src="logo.png" />
+    </h1>
     <nav id="navBar">
       <a href="../../exercises/day1/day1.html">Day 1</a>
       <a href="../../exercises/day2/day2.html">Day 2</a>

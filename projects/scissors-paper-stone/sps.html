@@ -76,8 +76,12 @@
     </nav>
     <div id="container">
       <p>Input:</p>
-      <input id="input-field" />
-      <br />
+      <select id="input-field">
+        <option value="" disabled selected>Choose your weapon</option>
+        <option value="scissors">Scissors</option>
+        <option value="paper">Paper</option>
+        <option value="stone">Stone</option>
+      </select>
       <button id="submit-button">Submit</button>
       <p>Output:</p>
       <div id="output-div"></div>
@@ -86,15 +90,14 @@
     <script src="script.js"></script>
     <!-- Define button click functionality -->
     <script>
-      var button = document.querySelector("#submit-button");
+      let button = document.querySelector("#submit-button");
       button.addEventListener("click", function () {
         // Set result to input value
-        var input = document.querySelector("#input-field");
-        var result = main(input.value);
+        let input = document.querySelector("#input-field").value;
 
         // Display result in output element
-        var output = document.querySelector("#output-div");
-        output.innerHTML = result;
+        let output = document.querySelector("#output-div");
+        output.innerHTML = main(input);
 
         // Reset input value
         input.value = "";

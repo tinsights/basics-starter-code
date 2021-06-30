@@ -70,8 +70,19 @@
       <a href="../../projects/blackjack/blackjack.html">Blackjack</a>
     </nav>
     <div id="container">
-      <p>Input:</p>
+      <p>Number of dice:</p>
       <input id="input-field" />
+      <p>Guess:</p>
+      <select id="guess">
+        <option value="" selected disabled>Make a guess!</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <br />
       <br />
       <button id="submit-button">Submit</button>
       <p>Output:</p>
@@ -80,20 +91,5 @@
     <!-- Import program logic -->
     <script src="script.js"></script>
     <!-- Define button click functionality -->
-    <script>
-      var button = document.querySelector("#submit-button");
-      button.addEventListener("click", function () {
-        // Set result to input value
-        var input = document.querySelector("#input-field");
-        var result = main(input.value);
-
-        // Display result in output element
-        var output = document.querySelector("#output-div");
-        output.innerHTML = result;
-
-        // Reset input value
-        input.value = "";
-      });
-    </script>
   </body>
 </html>

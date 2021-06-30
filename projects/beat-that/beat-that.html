@@ -33,7 +33,7 @@
         line-height: 33px;
         margin: 0 0 23px 0;
         padding: 0 9px;
-        width: 100%;
+        width: 20%;
       }
 
       button {
@@ -75,10 +75,14 @@
       <a href="../blackjack/blackjack.html">Blackjack</a>
     </nav>
     <div id="container">
-      <p>Input:</p>
+      <label for="dice">How many dice would you like to roll?</label>
+      <br />
+      <input type="number" id="num-dice" name="num-dice" min="1" max="5" />
+      <button id="roll-dice">Roll Dice</button>
+      <!-- <p>Input:</p>
       <input id="input-field" />
       <br />
-      <button id="submit-button">Submit</button>
+      <button id="submit-button">Submit</button> -->
       <p>Output:</p>
       <div id="output-div"></div>
     </div>

@@ -10,21 +10,13 @@ let dealerHand = [];
 function generateCard(rank, suit) {
   let value = rank > 10 ? 10 : rank;
   let name = "";
+  // prettier-ignore
   switch (rank) {
-    case 1:
-      name = "Ace";
-      break;
-    case 11:
-      name = "Jack";
-      break;
-    case 12:
-      name = "Queen";
-      break;
-    case 13:
-      name = "King";
-      break;
-    default:
-      name = rank;
+    case 1:  name = "Ace"; break;
+    case 11: name = "Jack"; break;
+    case 12: name = "Queen"; break;
+    case 13: name = "King"; break;
+    default: name = rank;
   }
 
   let card = {

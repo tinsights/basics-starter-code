@@ -3,7 +3,7 @@
 //   name = window.prompt("What's your name?");
 // } while (name == null || name == "");
 // window.alert("Hello, " + name + ". Pick scissors, paper or stone!");
-// let score = { you: 0, computer: 0 };
+let score = { you: 0, computer: 0 };
 
 let main = function (input) {
   if (input == "") {

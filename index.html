@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basics</title>
+    <!-- Page setup configurations -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon configuration -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
+    <!-- Inline CSS -->
     <style>
       * {
         box-sizing: border-box;
@@ -13,8 +23,17 @@
         margin-right: 30px;
       }
 
-      #header {
+      .header {
         text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .header a:hover {
+        color: red;
       }
 
       #container {
@@ -24,19 +43,16 @@
         padding: 38px 31px;
       }
 
-      input {
-        font-size: 21px;
+      select {
+        font-size: 17px;
         line-height: 33px;
         margin: 0 0 23px 0;
         padding: 0 9px;
-        width: 100%;
+        width: 40%;
       }
 
       button {
-        font-size: 21px;
-        line-height: 33px;
-        margin: 0 0 23px 0;
-        padding: 0 6px;
+        font-size: 20px;
       }
 
       #output-div {
@@ -45,30 +61,75 @@
         padding: 20px;
         width: 100%;
       }
+
+      .logo-img {
+        height: 49px;
+        position: relative;
+        top: 22px;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+        border-right: 1px solid #bbb;
+      }
+      li:last-child {
+        border-left: 1px solid #bbb;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: #111;
+      }
+
+      /* increase header font size on wider screens */
+      @media screen and (min-width: 600px) {
+        .header {
+          font-size: 2rem;
+        }
+      }
     </style>
+
+    <title>Basics - Rocket Academy</title>
   </head>
 
   <body>
-    <h1 id="header">Basics! 🚀</h1>
-    <nav id="navBar">
-      <a href="exercises/day1/day1.html">Day 1</a>
-      <a href="exercises/day2/day2.html">Day 2</a>
-      <a href="exercises/day3/day3.html">Day 3</a>
-      <a href="exercises/day4/day4.html">Day 4</a>
-      <a href="exercises/day5/day5.html">Day 5</a>
-      <a href="exercises/day6/day6.html">Day 6</a>
-      <a href="exercises/day7/day7.html">Day 7</a>
-      <a href="exercises/day8/day8.html">Day 8</a>
-      <a href="exercises/day9/day9.html">Day 9</a>
-      <a href="exercises/day10/day10.html">Day 10</a>
-      <a href="exercises/day11/day11.html">Day 11</a>
-      <a href="exercises/day12/day12.html">Day 12</a>
-    </nav>
-    <nav id="projectNavBar">
-      <a href="projects/scissors-paper-stone/sps.html">Scissors Paper Stone</a>
-      <a href="projects/beat-that/beat-that.html">Beat That!</a>
-      <a href="projects/blackjack/blackjack.html">Blackjack</a>
-    </nav>
+    <h1 class="header">
+      <img class="logo-img" src="logo.png" />
+      <a href="https://basics.rocketacademy.co/" target="_blank"> Basics! </a>
+      <img class="logo-img" src="logo.png" />
+    </h1>
+    <ul>
+      <li><a href="exercises/day1/day1.html">Day 1</a></li>
+      <li><a href="exercises/day2/day2.html">Day 2</a></li>
+      <li><a href="exercises/day3/day3.html">Day 3</a></li>
+      <li><a href="exercises/day4/day4.html">Day 4</a></li>
+      <li><a href="exercises/day5/day5.html">Day 5</a></li>
+      <li><a href="exercises/day6/day6.html">Day 6</a></li>
+      <li><a href="exercises/day7/day7.html">Day 7</a></li>
+      <li><a href="exercises/day8/day8.html">Day 8</a></li>
+      <li><a href="exercises/day9/day9.html">Day 9</a></li>
+      <li><a href="exercises/day10/day10.html">Day 10</a></li>
+      <li><a href="exercises/day11/day11.html">Day 11</a></li>
+      <li><a href="exercises/day12/day12.html">Day 12</a></li>
+      <li style="float: right"><a href="projects/scissors-paper-stone/sps.html">Scissors Paper Stone</a></li>
+      <li style="float: right"><a href="projects/beat-that/beat-that.html">Beat That!</a></li>
+      <li style="float: right"><a href="projects/blackjack/blackjack.html">Blackjack</a></li>
+    </ul>
     <div id="container">
       <p>Input:</p>
       <input id="input-field" />

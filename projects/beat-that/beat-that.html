@@ -104,7 +104,7 @@
       }
     </style>
 
-    <title>Blackjack - Basics - Rocket Academy</title>
+    <title>Beat That! - Basics - Rocket Academy</title>
   </head>
 
   <body>
@@ -132,14 +132,15 @@
     </ul>
     <h1 class="header">🎲Beat That!🎲</h1>
     <div id="container">
-      <label for="dice">How many dice would you like to roll?</label>
+      <label for="playerInput">How many of you would like to play?</label>
+      <input type="number" id="playerInput" name="playerInput" min="2" max="5" style="float: right" />
       <br />
-      <input type="number" id="num-dice" name="num-dice" min="1" max="5" />
-      <button id="roll-dice">Roll Dice</button>
-      <!-- <p>Input:</p>
-      <input id="input-field" />
       <br />
-      <button id="submit-button">Submit</button> -->
+      <label for="diceInput">How many dice would you each like to roll?</label>
+      <input type="number" id="diceInput" name="diceInput" min="2" max="5" style="float: right" />
+      <br />
+      <br />
+      <button id="roll-dice" style="float: right">Beat That!</button>
       <p>Output:</p>
       <div id="output-div"></div>
     </div>

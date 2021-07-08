@@ -32,9 +32,13 @@ var iceCreamBuffet = function (input) {
   return myOutputValue;
 };
 
-var timeToType = function (input) {
+function timeToType(input) {
   let time = 17677 / input / 60;
+
+  if (input == "" || Number.isNaN(Number(input))) {
+    return "Please enter a valid input";
+  }
   // prettier-ignore
   var myOutputValue = `Typing at ${input} words per minute, you will take ${time.toFixed(2)} hours to complete typing all of Shakespeare's sonnets!`;
   return myOutputValue;
-};
+}

@@ -3,9 +3,11 @@ let output = document.querySelector("#output-div");
 let input = document.querySelector("#input-field");
 button.addEventListener("click", (lambda = () => eval(input.value)));
 
+// global variables
 let deck = [];
 let playerHand = [];
 let dealerHand = [];
+
 // generate a card object with rank/value, suit, and name
 function generateCard(rank, suit) {
   let value = rank > 10 ? 10 : rank;
@@ -33,11 +35,13 @@ function generateDeck() {
   const suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
   for (let i = 1; i <= 13; i++) {
     for (let j = 0; j < 4; j++) {
+      // generates cards and inserts randomly into deck
       deck.splice(Math.floor(Math.random() * deck.length), 0, generateCard(i, suits[j]));
     }
   }
 }
 
+// returns true if blackjack
 function blackjack(hand) {
   if (hand[0].name == "Ace" || hand[1].name == "Ace") {
     if (hand[0].value == 10 || hand[1].value == 10) {
@@ -46,11 +50,11 @@ function blackjack(hand) {
   }
   return false;
 }
-
+// returns the top card of the deck
 function deal() {
   return deck.shift();
 }
-
+// calculates the score of a player's hand
 function score(hand) {
   let total = 0;
   let aces = 0;
@@ -61,6 +65,7 @@ function score(hand) {
       total += hand[i].value;
     }
   }
+  // account for all aces last
   while (aces > 0) {
     if (total <= 11 - aces) {
       total += 11;
@@ -129,6 +134,7 @@ function stand() {
   toggleOpts();
 }
 
+// Ensures options in drop-down menu align to game state
 function toggleOpts() {
   input[1].disabled = !input[1].disabled;
   input[2].disabled = !input[2].disabled;

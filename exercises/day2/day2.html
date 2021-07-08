@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Favicon configuration -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <!-- Inline CSS -->
     <style>
@@ -43,9 +43,9 @@
         padding: 38px 31px;
       }
 
-      select {
-        font-size: 17px;
-        line-height: 33px;
+      input {
+        font-size: 20px;
+        line-height: 25px;
         margin: 0 0 23px 0;
         padding: 0 9px;
         width: 40%;
@@ -55,7 +55,7 @@
         font-size: 20px;
       }
 
-      #output-div {
+      .output {
         background-color: lightgrey;
         margin: 20px auto;
         padding: 20px;
@@ -134,25 +134,47 @@
       <a href="https://basics.rocketacademy.co/in-class-exercises/day-2-functions" target="_blank">Day 2</a>
     </h1>
     <div id="container">
+      <h2>Angular Difference Between Hands of a Wall Clock</h2>
       <p>Input:</p>
-      <input id="input-field" />
-      <br />
+      <input id="input-field" placeholder="Enter time in hhmm format" />
       <button id="submit-button">Submit</button>
       <p>Output:</p>
-      <div id="output-div"></div>
+      <div class="output" id="output-div"></div>
+    </div>
+
+    <div id="container">
+      <h2>Mortgage Calculator</h2>
+      <p>Input:</p>
+      <input id="loan-input-field" placeholder="Enter your loan amount" />
+      <button id="loan-button">Calculate!</button>
+      <p>Output:</p>
+      <div class="output" id="loan-output-div"></div>
     </div>
     <!-- Import program logic -->
     <script src="script.js"></script>
     <!-- Define button click functionality -->
     <script>
-      var button = document.querySelector("#submit-button");
-      button.addEventListener("click", function () {
+      var buttonOne = document.querySelector("#submit-button");
+      var buttonTwo = document.querySelector("#loan-button");
+      buttonOne.addEventListener("click", function () {
         // Set result to input value
         var input = document.querySelector("#input-field");
         var result = main(input.value);
 
         // Display result in output element
         var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        input.value = "";
+      });
+      buttonTwo.addEventListener("click", function () {
+        // Set result to input value
+        var input = document.querySelector("#loan-input-field");
+        var result = loanCalc(input.value);
+
+        // Display result in output element
+        var output = document.querySelector("#loan-output-div");
         output.innerHTML = result;
 
         // Reset input value

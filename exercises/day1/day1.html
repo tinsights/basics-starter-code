@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Favicon configuration -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png" />
 
     <!-- Inline CSS -->
     <style>
@@ -43,9 +43,9 @@
         padding: 38px 31px;
       }
 
-      select {
+      input {
         font-size: 17px;
-        line-height: 33px;
+        line-height: 30px;
         margin: 0 0 23px 0;
         padding: 0 9px;
         width: 40%;
@@ -138,8 +138,9 @@
       >
     </h1>
     <div id="container">
+      <h2>Time to Type Sonnets</h2>
       <p>Input:</p>
-      <input id="input-field" />
+      <input id="input-field" placeholder="Input your typing speed in wpm here" />
       <button id="submit-button">Submit</button>
       <p>Output:</p>
       <div id="output-div"></div>
@@ -152,7 +153,7 @@
       button.addEventListener("click", function () {
         // Set result to input value
         var input = document.querySelector("#input-field");
-        var result = main(input.value);
+        var result = timeToType(input.value);
 
         // Display result in output element
         var output = document.querySelector("#output-div");

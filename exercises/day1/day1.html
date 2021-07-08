@@ -36,7 +36,7 @@
         color: red;
       }
 
-      #container {
+      .container {
         background-color: pink;
         margin: 40px auto;
         max-width: 800px;
@@ -55,7 +55,7 @@
         font-size: 20px;
       }
 
-      #output-div {
+      .output {
         background-color: lightgrey;
         margin: 20px auto;
         padding: 20px;
@@ -137,26 +137,72 @@
         >Day 1</a
       >
     </h1>
-    <div id="container">
+    <div class="container">
+      <h2>Farenheit to Celcius</h2>
+      <p>Input:</p>
+      <input id="temp-input-field" placeholder="Temperature in Farenheit" />
+      <button id="temp-submit-button">Submit</button>
+      <p>Output:</p>
+      <div class="output" id="temp-output-div"></div>
+    </div>
+
+    <div class="container">
+      <h2>Ice Cream Buffet</h2>
+      <p>Input:</p>
+      <input id="buffet-input-field" placeholder="Trips to the ice-cream station" />
+      <button id="buffet-submit-button">Submit</button>
+      <p>Output:</p>
+      <div class="output" id="buffet-output-div"></div>
+    </div>
+
+    <div class="container">
       <h2>Time to Type Sonnets</h2>
       <p>Input:</p>
-      <input id="input-field" placeholder="Input your typing speed in wpm here" />
-      <button id="submit-button">Submit</button>
+      <input id="sonnet-input-field" placeholder="Input your typing speed in wpm here" />
+      <button id="sonnet-submit-button">Submit</button>
       <p>Output:</p>
-      <div id="output-div"></div>
+      <div class="output" id="sonnet-output-div"></div>
     </div>
     <!-- Import program logic -->
     <script src="script.js"></script>
     <!-- Define button click functionality -->
     <script>
-      var button = document.querySelector("#submit-button");
-      button.addEventListener("click", function () {
+      var buttonOne = document.querySelector("#temp-submit-button");
+      buttonOne.addEventListener("click", function () {
         // Set result to input value
-        var input = document.querySelector("#input-field");
+        var input = document.querySelector("#temp-input-field");
+        var result = farenToCel(input.value);
+
+        // Display result in output element
+        var output = document.querySelector("#temp-output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        input.value = "";
+      });
+
+      var buttonTwo = document.querySelector("#buffet-submit-button");
+      buttonTwo.addEventListener("click", function () {
+        // Set result to input value
+        var input = document.querySelector("#buffet-input-field");
+        var result = iceCreamBuffet(input.value);
+
+        // Display result in output element
+        var output = document.querySelector("#buffet-output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        input.value = "";
+      });
+
+      var buttonLast = document.querySelector("#sonnet-submit-button");
+      buttonLast.addEventListener("click", function () {
+        // Set result to input value
+        var input = document.querySelector("#sonnet-input-field");
         var result = timeToType(input.value);
 
         // Display result in output element
-        var output = document.querySelector("#output-div");
+        var output = document.querySelector("#sonnet-output-div");
         output.innerHTML = result;
 
         // Reset input value

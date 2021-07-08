@@ -13,8 +13,11 @@ var minutesInWeeks = function (input) {
 };
 
 var farenToCel = function (input) {
+  if (input == "" || Number.isNaN(Number(input))) {
+    return "Please enter a valid input";
+  }
   let celsius = (5 / 9) * (input - 32);
-  var myOutputValue = `${input} &#176F is ${celsius.toFixed(2)}&#176C.`;
+  var myOutputValue = `${input}&#176F is ${celsius.toFixed(2)}&#176C.`;
   return myOutputValue;
 };
 
@@ -26,9 +29,10 @@ var roadTripCost = function (input) {
 };
 
 var iceCreamBuffet = function (input) {
-  let containers = (input * 70) / 400;
+  let volume = input * 70;
+  let containers = volume / 400;
   // prettier-ignore
-  var myOutputValue = `In ${input} trips you would have consumed ${containers.toFixed(2)} containers of ice cream. Wow!`;
+  var myOutputValue = `In ${input} trips you would have consumed ${containers.toFixed(2)} containers of ice cream. That is ${volume.toFixed(0)}ml of ice cream. Wow!`;
   return myOutputValue;
 };
 

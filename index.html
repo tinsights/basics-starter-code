@@ -155,6 +155,11 @@
         // Reset input value
         input.value = "";
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let output = document.querySelector("#output-div");
+        output.innerHTML = `hello, world! <br> <br> Use the navbar to switch between days. Clicking on any headers will bring you to the relevant RA Basics page for a reminder of that day's exercises.`;
+      });
     </script>
   </body>
 </html>

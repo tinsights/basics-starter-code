@@ -41,15 +41,6 @@ function generateDeck() {
   }
 }
 
-// returns true if blackjack
-function blackjack(hand) {
-  if (hand[0].name == "Ace" || hand[1].name == "Ace") {
-    if (hand[0].value == 10 || hand[1].value == 10) {
-      return true;
-    }
-  }
-  return false;
-}
 // returns the top card of the deck
 function deal() {
   return deck.shift();
@@ -85,12 +76,15 @@ function startGame() {
   playerHand = [deal(), deal()];
   dealerHand = [deal(), deal()];
 
-  let firstDeal = `You have been dealt the ${playerHand[0].title} and the ${playerHand[1].title}.<br><br>
-                    The dealer's face-up card is the ${dealerHand[0].title}.`;
-  output.innerHTML += firstDeal + "<br><br>";
-  if (blackjack(playerHand)) {
-    output.innerHTML += "Blackjack!";
-    if (blackjack(dealerHand)) {
+  let firstDeal = `You have been dealt the ${playerHand[0].title} 
+                    and the ${playerHand[1].title}.
+                    <br><br>
+                    The dealer's face-up card is the ${dealerHand[0].title}.
+                    <br><br>`;
+  output.innerHTML += firstDeal;
+  if (score(playerHand) == 21) {
+    output.innerHTML += "Blackjack!" + "<br>";
+    if (score(dealerHand) == 21) {
       let reveal = `Unfortunately, the dealer reveals the ${dealerHand[1].title}.`;
       output.innerHTML += "<br><br>" + reveal + "<br><br>";
       output.innerHTML += "Draw!";

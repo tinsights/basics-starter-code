@@ -76,20 +76,20 @@ function startGame() {
   playerHand = [deal(), deal()];
   dealerHand = [deal(), deal()];
 
-  let firstDeal = `You have been dealt the ${playerHand[0].title} 
-                    and the ${playerHand[1].title}.
+  let firstDeal = `You have been dealt the <strong>${playerHand[0].title}</strong>
+                    and the <strong>${playerHand[1].title}</strong>.
                     <br><br>
-                    The dealer's face-up card is the ${dealerHand[0].title}.
+                    The dealer's face-up card is the <strong>${dealerHand[0].title}</strong>.
                     <br><br>`;
   output.innerHTML += firstDeal;
   if (score(playerHand) == 21) {
-    output.innerHTML += "Blackjack!" + "<br>";
+    output.innerHTML += `<strong>Blackjack!</strong> <br>`;
     if (score(dealerHand) == 21) {
-      let reveal = `Unfortunately, the dealer reveals the ${dealerHand[1].title}.`;
+      let reveal = `Unfortunately, the dealer reveals the <strong>${dealerHand[1].title}</strong>.`;
       output.innerHTML += "<br><br>" + reveal + "<br><br>";
-      output.innerHTML += "Draw!";
+      output.innerHTML += "<strong>Draw!</strong>";
     } else {
-      output.innerHTML += "You win!";
+      output.innerHTML += "<strong>You win!</strong>";
     }
     toggleOpts();
   }
@@ -98,32 +98,34 @@ function startGame() {
 function hit() {
   card = deal();
   playerHand.push(card);
-  let message = `You draw the ${card.title}. You now have ${score(playerHand)}.`;
+  let message = `You draw the <strong>${card.title}</strong>. You now have <strong>${score(playerHand)}</strong>.`;
   output.innerHTML += message + "<br><br>";
   if (score(playerHand) > 21) {
-    output.innerHTML += "Too bad!";
+    output.innerHTML += `<strong>Too bad!</strong>`;
     toggleOpts();
   }
 }
 
 function stand() {
-  let reveal = `The dealer reveals the ${dealerHand[1].title}.
-  He has ${score(dealerHand)}.`;
+  let reveal = `The dealer reveals the <strong>${dealerHand[1].title}</strong>.
+  He has <strong>${score(dealerHand)}</strong>.`;
   output.innerHTML += reveal + "<br><br>";
 
   while (score(dealerHand) < 17) {
     card = deal();
     dealerHand.push(card);
-    let message = `The dealer draws the ${card.title}. He now has ${score(dealerHand)}.`;
+    let message = `The dealer draws the <strong>${card.title}</strong>. He now has <strong>${score(
+      dealerHand
+    )}</strong>.`;
     output.innerHTML += message + "<br>";
   }
 
   if (score(dealerHand) > 21 || score(playerHand) > score(dealerHand)) {
-    output.innerHTML += "<br>" + "You win!";
+    output.innerHTML += `<br> <strong>You win!</strong>`;
   } else if (score(playerHand) < score(dealerHand)) {
-    output.innerHTML += "<br>" + "You lose!";
+    output.innerHTML += `<br> <strong>You lose!</strong>`;
   } else {
-    output.innerHTML += "<br>" + "Draw!";
+    output.innerHTML += `<br> <strong>Draw!</strong>`;
   }
   toggleOpts();
 }

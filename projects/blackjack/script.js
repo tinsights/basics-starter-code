@@ -69,6 +69,13 @@ function score(hand) {
   return total;
 }
 
+function blackjack(hand) {
+  if (hand.length == 2 && score(hand) == 21) {
+    return true;
+  }
+  return false;
+}
+
 function startGame() {
   toggleOpts();
   output.innerHTML = "Good luck!" + "<br><br>";
@@ -82,9 +89,9 @@ function startGame() {
                     The dealer's face-up card is the <strong>${dealerHand[0].title}</strong>.
                     <br><br>`;
   output.innerHTML += firstDeal;
-  if (score(playerHand) == 21) {
+  if (blackjack(playerHand)) {
     output.innerHTML += `<strong>Blackjack!</strong> <br>`;
-    if (score(dealerHand) == 21) {
+    if (blackjack(dealerHand)) {
       let reveal = `Unfortunately, the dealer reveals the <strong>${dealerHand[1].title}</strong>.`;
       output.innerHTML += "<br><br>" + reveal + "<br><br>";
       output.innerHTML += "<strong>Draw!</strong>";
@@ -108,7 +115,7 @@ function hit() {
 
 function stand() {
   let reveal = `The dealer reveals the <strong>${dealerHand[1].title}</strong>.
-  He has <strong>${score(dealerHand)}</strong>.`;
+                He has <strong>${score(dealerHand)}</strong>.`;
   output.innerHTML += reveal + "<br><br>";
 
   while (score(dealerHand) < 17) {
@@ -122,7 +129,7 @@ function stand() {
 
   if (score(dealerHand) > 21 || score(playerHand) > score(dealerHand)) {
     output.innerHTML += `<br> <strong>You win!</strong>`;
-  } else if (score(playerHand) < score(dealerHand)) {
+  } else if (score(playerHand) < score(dealerHand) || blackjack(dealerHand)) {
     output.innerHTML += `<br> <strong>You lose!</strong>`;
   } else {
     output.innerHTML += `<br> <strong>Draw!</strong>`;

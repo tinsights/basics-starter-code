@@ -78,6 +78,9 @@ function blackjack(hand) {
 
 function startGame() {
   toggleOpts();
+  deck = [];
+  playerHand = [];
+  dealerHand = [];
   output.innerHTML = "Good luck!" + "<br><br>";
   generateDeck();
   playerHand = [deal(), deal()];

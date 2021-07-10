@@ -1,94 +1,96 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basics</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
+    <!-- Page setup configurations -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      body {
-        font-family: sans-serif;
-        margin-left: 30px;
-        margin-right: 30px;
-      }
+    <!-- Favicon configuration -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../../img/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
 
-      #header {
-        text-align: center;
-      }
+    <!-- Inline CSS -->
+    <link rel="stylesheet" href="../../styles.css" />
 
-      #container {
-        background-color: pink;
-        margin: 40px auto;
-        max-width: 800px;
-        padding: 38px 31px;
-      }
-
-      input {
-        font-size: 21px;
-        line-height: 33px;
-        margin: 0 0 23px 0;
-        padding: 0 9px;
-        width: 100%;
-      }
-
-      button {
-        font-size: 21px;
-        line-height: 33px;
-        margin: 0 0 23px 0;
-        padding: 0 6px;
-      }
-
-      #output-div {
-        background-color: lightgrey;
-        margin: 20px auto;
-        padding: 20px;
-        width: 100%;
-      }
-    </style>
+    <title>Basics - Rocket Academy</title>
   </head>
 
   <body>
-    <h1 id="header"><a href="../../index.html">Basics!</a> 🚀</h1>
-    <nav id="navBar">
-      <a href="../day1/day1.html">Day 1</a>
-      <a href="../day2/day2.html">Day 2</a>
-      <a href="../day3/day3.html">Day 3</a>
-      <a href="../day4/day4.html">Day 4</a>
-      <a href="../day5/day5.html">Day 5</a>
-      <a href="../day6/day6.html">Day 6</a>
-      <a href="../day7/day7.html">Day 7</a>
-      <a href="../day8/day8.html">Day 8</a>
-      <a href="../day9/day9.html">Day 9</a>
-      <a href="../day10/day10.html">Day 10</a>
-      <a href="../day11/day11.html">Day 11</a>
-      <a href="../day12/day12.html">Day 12</a>
-    </nav>
-    <nav id="projectNavBar">
-      <a href="../../projects/scissors-paper-stone/sps.html">Scissors Paper Stone</a>
-      <a href="../../projects/beat-that/beat-that.html">Beat That!</a>
-      <a href="../../projects/blackjack/blackjack.html">Blackjack</a>
-    </nav>
-    <div id="container">
+    <h1 class="header">
+      <img class="logo-img" src="../../img/logo.png" />
+      <a href="https://basics.rocketacademy.co/" target="_blank"> Basics! </a>
+      <img class="logo-img" src="../../img/logo.png" />
+    </h1>
+    <ul>
+      <li><a href="../day1/day1.html">Day 1</a></li>
+      <li><a href="../day2/day2.html">Day 2</a></li>
+      <li><a href="../day3/day3.html">Day 3</a></li>
+      <li><a href="../day4/day4.html">Day 4</a></li>
+      <li><a href="../day5/day5.html">Day 5</a></li>
+      <li><a class="active" href="../day6/day6.html">Day 6</a></li>
+      <li><a href="../day7/day7.html">Day 7</a></li>
+      <li><a href="../day8/day8.html">Day 8</a></li>
+      <li><a href="../day9/day9.html">Day 9</a></li>
+      <li><a href="../day10/day10.html">Day 10</a></li>
+      <li><a href="../day11/day11.html">Day 11</a></li>
+      <li><a href="../day12/day12.html">Day 12</a></li>
+      <li style="float: right"><a href="../../projects/blackjack/blackjack.html">Blackjack</a></li>
+      <li style="float: right"><a href="../../projects/beat-that/beat-that.html">Beat That!</a></li>
+      <li style="float: right"><a href="../../projects/scissors-paper-stone/sps.html">Scissors Paper Stone</a></li>
+    </ul>
+    <h2 class="header">
+      <a href="https://basics.rocketacademy.co/in-class-exercises/day-6-loops"> Loops </a>
+    </h2>
+
+    <div class="container">
+      <h2>Pre-class:</h2>
       <p>Input:</p>
-      <input id="input-field" />
+      <input id="input-field-one" />
       <br />
-      <button id="submit-button">Submit</button>
+      <button id="submit-button-one">Submit</button>
       <p>Output:</p>
-      <div id="output-div"></div>
+      <div class="output" id="output-div-one"></div>
     </div>
+
+    <div class="container">
+      <h2>In-class:</h2>
+      <p>Input:</p>
+      <input id="input-field-two" />
+      <br />
+      <button id="submit-button-two">Submit</button>
+      <p>Output:</p>
+      <div class="output" id="output-div-two"></div>
+    </div>
+
     <!-- Import program logic -->
     <script src="script.js"></script>
+
     <!-- Define button click functionality -->
     <script>
-      var button = document.querySelector("#submit-button");
-      button.addEventListener("click", function () {
+      var buttonOne = document.querySelector("#submit-button-one");
+      buttonOne.addEventListener("click", function () {
         // Set result to input value
-        var input = document.querySelector("#input-field");
+        var input = document.querySelector("#input-field-one");
         var result = main(input.value);
 
         // Display result in output element
-        var output = document.querySelector("#output-div");
+        var output = document.querySelector("#output-div-one");
+        output.innerHTML = result;
+
+        // Reset input value
+        input.value = "";
+      });
+
+      var buttonTwo = document.querySelector("#submit-button-two");
+      buttonTwo.addEventListener("click", function () {
+        // Set result to input value
+        var input = document.querySelector("#input-field-two");
+        var result = mainTwo(input.value);
+
+        // Display result in output element
+        var output = document.querySelector("#output-div-two");
         output.innerHTML = result;
 
         // Reset input value

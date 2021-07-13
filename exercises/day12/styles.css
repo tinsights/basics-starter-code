@@ -21,6 +21,10 @@ a:hover {
   color: red;
 }
 
+.active {
+  background-color: #04aa6d;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

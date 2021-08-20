@@ -4,6 +4,9 @@ var main = function (input) {
   }
   let hour = parseInt(input.substring(0, 2));
   const minutes = parseInt(input.substring(2));
+  if (hour < 0 || hour > 23 || minutes < 0 || minutes > 59) {
+    return "Please enter a valid input";
+  }
   console.log(hour, minutes);
   hour = hour >= 12 ? hour - 12 : hour;
 
